@@ -1,24 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  const [state, setState] = useState({counter:0});
+  const add1ToCounter = () => {
+    const newCounterValue = state.counter + 1;
+    setState({ counter: newCounterValue});
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <p>You clicked {state.counter} times</p>
+      <button onClick={add1ToCounter}>
+        Click me
+      </button>
     </div>
   );
 }
