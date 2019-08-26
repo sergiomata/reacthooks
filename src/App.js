@@ -9,6 +9,13 @@ function App() {
     setState({ counter: newCounterValue});
   }
 
+  /*  same result as componentDidMount() ,
+   the useEffect method only render after certain variables used in second parameter
+  */
+  useEffect(() => {
+    console.log('I will run only once');
+  }, []);
+
   return (
     <div>
       <p>You clicked {state.counter} times</p>
